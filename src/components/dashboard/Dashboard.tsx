@@ -1,11 +1,6 @@
 // @ts-expect-error WindMap is a JavaScript module without a declaration file.
 import WindMap from "../map/WindMap";
 import { useMemo, useRef, useState } from "react";
-<<<<<<< HEAD
-=======
-import gawcLogo from "../../assets/gawc-logo.png.jpeg";
-import makeInIndiaLogo from "../../assets/make-in-india.png.jpeg";
->>>>>>> 00e5b37 (Add NIWE portal updates)
 import { useStations } from "../../context/StationsContext";
 import type { StationFeatureCollection } from "../../types/station";
 import InstallationTimeline from "./InstallationTimeline";
@@ -17,6 +12,9 @@ import StatusChart from "./StatusChart";
 import StationDetails from "./StationDetails";
 import StationTable from "./StationTable";
 import WindSpeedChart from "./WindSpeedChart";
+import windTurbine from "../../assets/wind-turbines.jpg";
+
+
 
 const ALL_STATES = "All States";
 
@@ -80,18 +78,9 @@ function Dashboard() {
     return (
       <main aria-busy="true" aria-live="polite">
         <p>Loading station analytics...</p>
-<<<<<<< HEAD
       </main>
     );
   }
-=======
-
-        
-      </main>
-    );
-  }
-  
->>>>>>> 00e5b37 (Add NIWE portal updates)
 
   if (error) {
     return (
@@ -124,37 +113,12 @@ function Dashboard() {
         display: "flex",
         flexDirection: "column",
         gap: "1.5rem",
+        backgroundImage: `url(${windTurbine})`,
         padding: "clamp(1rem, 3vw, 2rem)",
         width: "100%",
         boxSizing: "border-box",
-<<<<<<< HEAD
       }}
     >
-=======
-        position:"relative",
-      }}
-    >
-    
-  <div
-    style={{
-      position: "absolute",
-      top: "20px",
-      right: "20px",
-      zIndex: 1000,
-    }}
-  >
-    <img
-      src={gawcLogo}
-      alt="GAWC Renewables"
-      style={{
-        width: "100px",
-        height: "auto",
-      }}
-    />
-  </div>
-
-  
->>>>>>> 00e5b37 (Add NIWE portal updates)
       <style>
         {`
           .dashboard-layout-row {
@@ -389,12 +353,12 @@ function Dashboard() {
         station={selectedStation}
         onClose={() => setSelectedStationId(null)}
       />
-<<<<<<< HEAD
     </main>
+    
+    
+    
   );
 }
-
-=======
 
             {/* your existing dashboard content */}
 
@@ -450,5 +414,4 @@ function Dashboard() {
 }
 
 
->>>>>>> 00e5b37 (Add NIWE portal updates)
 export default Dashboard;

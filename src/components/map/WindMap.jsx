@@ -63,30 +63,32 @@ function MapLegend() {
     });
 
     legend.onAdd = () => {
-      const div = L.DomUtil.create("div");
+      const div = L.DomUtil.create("div", "wind-map-legend");
 
       div.innerHTML = `
         <div style="
           background: white;
-          padding: 10px;
+          padding: 8px;
           border-radius: 6px;
           box-shadow: 0 1px 5px rgba(0,0,0,0.3);
-          font-size: 14px;
-          line-height: 1.6;
+          font-size: 11px;
+          line-height: 1.5;
+          font-weight: 700;
+          text-align: left;
         ">
-          <strong>Mast Height</strong><br/>
-          <span style="color: blue; font-size: 18px;">●</span>
-          ≤ 50 m<br/>
-          <span style="color: green; font-size: 18px;">●</span>
-          51–80 m<br/>
-          <span style="color: #d4b000; font-size: 18px;">●</span>
-          81–100 m<br/>
-          <span style="color: orange; font-size: 18px;">●</span>
-          101–120 m<br/>
-          <span style="color: red; font-size: 18px;">●</span>
-          &gt; 120 m<br/>
-          <span style="color: violet; font-size: 18px;">●</span>
-          Unknown
+          <strong>Marker colour = mast height</strong><br/>
+          <span style="color: blue; font-size: 15px;">●</span>
+          Blue: ≤ 50 m<br/>
+          <span style="color: green; font-size: 15px;">●</span>
+          Green: &gt; 50–80 m<br/>
+          <span style="color: #d4b000; font-size: 15px;">●</span>
+          Yellow: &gt; 80–100 m<br/>
+          <span style="color: orange; font-size: 15px;">●</span>
+          Orange: &gt; 100–120 m<br/>
+          <span style="color: red; font-size: 15px;">●</span>
+          Red: &gt; 120 m<br/>
+          <span style="color: violet; font-size: 15px;">●</span>
+          Violet: height unknown
         </div>
       `;
 

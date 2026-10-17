@@ -138,6 +138,14 @@ code {
   width: 100%;
 }
 
+.wind-map-legend {
+  transition: opacity 0.2s ease;
+}
+
+.wind-map-legend:hover {
+  opacity: 0.2;
+}
+
 @media (max-width: 768px) {
   .map-container {
     height: 450px;

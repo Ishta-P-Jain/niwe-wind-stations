@@ -51,11 +51,8 @@
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
+  width: 100%;
   text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -64,6 +61,33 @@
 
 body {
   margin: 0;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.68), rgba(15, 23, 42, 0.5)),
+    url("./assets/wind-turbines.jpg") center / cover fixed no-repeat;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #64748b #0f172a;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border: 2px solid #0f172a;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 h1,
@@ -155,4 +179,3 @@ code {
     font-size: 12px !important;
   }
 }
-

@@ -12,7 +12,9 @@ import StatusChart from "./StatusChart";
 import StationDetails from "./StationDetails";
 import StationTable from "./StationTable";
 import WindSpeedChart from "./WindSpeedChart";
-import windTurbine from "../../assets/wind-turbines.jpg";
+import Footer from "./Footer";
+import gawcLogo from "../../assets/gawc-logo.png.jpeg";
+import makeInIndiaLogo from "../../assets/make-in-india.png.jpeg";
 
 
 
@@ -108,14 +110,17 @@ function Dashboard() {
     selectedStationId === null;
 
   return (
+    <>
     <main
       style={{
         display: "flex",
+        flex: "1 0 auto",
         flexDirection: "column",
         gap: "1.5rem",
-        backgroundImage: `url(${windTurbine})`,
         padding: "clamp(1rem, 3vw, 2rem)",
         width: "100%",
+        maxWidth: "1126px",
+        marginInline: "auto",
         boxSizing: "border-box",
       }}
     >
@@ -140,11 +145,16 @@ function Dashboard() {
 
           .dashboard-map-container {
             min-width: 0;
+            position: relative;
             width: 100%;
             overflow: hidden;
             border: 1px solid var(--border);
             border-radius: 10px;
             scroll-margin-top: 1rem;
+          }
+
+          .dashboard-map-container:hover .map-zoom-hint {
+            opacity: 0;
           }
 
           @media (max-width: 900px) {
@@ -165,19 +175,49 @@ function Dashboard() {
           textAlign: "left",
         }}
       >
-        <div>
-          <h1
+        <div
+          style={{
+            alignItems: "center",
+            display: "flex",
+            flex: "1 1 auto",
+            gap: "1rem",
+            justifyContent: "space-between",
+            minWidth: 0,
+          }}
+        >
+          <div>
+            <h1
+              style={{
+                color: "#FFFFFF",
+                fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+                letterSpacing: "-0.04em",
+                margin: 0,
+                textShadow: "0 2px 8px rgba(0, 0, 0, 0.85)",
+              }}
+            >
+              NIWE Wind Measurement Station Portal
+            </h1>
+            <p
+              style={{
+                color: "#F1F5F9",
+                marginTop: "0.5rem",
+                textShadow: "0 1px 5px rgba(0, 0, 0, 0.9)",
+              }}
+            >
+              Interactive Wind Resource Monitoring &amp; Analytics Platform
+            </p>
+          </div>
+          <img
+            src={gawcLogo}
+            alt="GAWC Renewables LLP company logo"
             style={{
-              fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-              letterSpacing: "-0.04em",
-              margin: 0,
+              flex: "0 0 auto",
+              height: "clamp(4rem, 8vw, 7rem)",
+              objectFit: "contain",
+              filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35))",
+              width: "clamp(4rem, 8vw, 7rem)",
             }}
-          >
-            NIWE Wind Measurement Station Portal
-          </h1>
-          <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-            Interactive Wind Resource Monitoring &amp; Analytics Platform
-          </p>
+          />
         </div>
         <div
           style={{
@@ -325,6 +365,27 @@ function Dashboard() {
               filteredStations.features.length < stations.features.length
             }
           />
+          <p
+            role="note"
+            className="map-zoom-hint"
+            style={{
+              background: "rgba(15, 23, 42, 0.85)",
+              borderRadius: "4px",
+              bottom: "0.75rem",
+              color: "#FFFFFF",
+              fontSize: "0.75rem",
+              left: "50%",
+              padding: "0.25rem 0.5rem",
+              pointerEvents: "none",
+              position: "absolute",
+              transform: "translateX(-50%)",
+              transition: "opacity 200ms ease",
+              whiteSpace: "nowrap",
+              zIndex: 1000,
+            }}
+          >
+            Hold Ctrl and scroll while hovering over the map to zoom.
+          </p>
         </div>
         <StatusChart stations={filteredStations} />
       </div>
@@ -354,19 +415,11 @@ function Dashboard() {
         onClose={() => setSelectedStationId(null)}
       />
     </main>
-    
-    
-    
-  );
-}
-
-            {/* your existing dashboard content */}
-
       <footer
         style={{
-          marginTop: "3rem",
-          padding: "1.5rem 2rem",
-          borderTop: "1px solid rgba(255,255,255,0.15)",
+          padding: "1.5rem clamp(1rem, 3vw, 2rem)",
+          background: "#0f172a",
+          boxSizing: "border-box",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -374,16 +427,22 @@ function Dashboard() {
           gap: "1rem",
           color: "#BDBDBD",
           fontSize: "0.9rem",
+          textAlign: "left",
+          width: "100%",
         }}
       >
         <div>
           <div style={{ color: "#FFFFFF", fontWeight: 600 }}>
             NIWE Wind Measurement Station Portal
           </div>
-          <div>
-            Developed by Shreya and Team | NMAM Institute of Technology, Nitte
+          <div style={{ color: "#E2E8F0" }}>
+            Contributed by Shreya, Ishta, Manya, Moulya and Manish
+            <br />
+            NMAM Institute of Technology, Nitte
           </div>
         </div>
+
+        <Footer />
 
         <div
           style={{
@@ -407,11 +466,8 @@ function Dashboard() {
           />
         </div>
       </footer>
-
-    </main>
-
+    </>
   );
 }
-
 
 export default Dashboard;

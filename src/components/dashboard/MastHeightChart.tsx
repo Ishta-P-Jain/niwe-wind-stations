@@ -38,7 +38,7 @@ const cardStyle: CSSProperties = {
 };
 
 const numberFormatter = new Intl.NumberFormat("en", {
-  maximumFractionDigits: 1,
+  maximumFractionDigits: 0,
 });
 
 function createDistribution(values: number[]): MastHeightBin[] {

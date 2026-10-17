@@ -353,14 +353,65 @@ function Dashboard() {
         station={selectedStation}
         onClose={() => setSelectedStationId(null)}
       />
-   
-        
-      
     </main>
     
     
     
   );
 }
+
+            {/* your existing dashboard content */}
+
+      <footer
+        style={{
+          marginTop: "3rem",
+          padding: "1.5rem 2rem",
+          borderTop: "1px solid rgba(255,255,255,0.15)",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "1rem",
+          color: "#BDBDBD",
+          fontSize: "0.9rem",
+        }}
+      >
+        <div>
+          <div style={{ color: "#FFFFFF", fontWeight: 600 }}>
+            NIWE Wind Measurement Station Portal
+          </div>
+          <div>
+            Developed by Shreya and Team | NMAM Institute of Technology, Nitte
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+          }}
+        >
+          <span style={{ color: "#FFFFFF", fontWeight: 600 }}>
+            MAKE IN INDIA
+          </span>
+
+          <img
+            src={makeInIndiaLogo}
+            alt="Make in India"
+            style={{
+              height: "45px",
+              width: "auto",
+              objectFit: "contain",
+            }}
+          />
+        </div>
+      </footer>
+
+    </main>
+
+  );
+}
+
 
 export default Dashboard;
